@@ -14,5 +14,12 @@ pipeline {
          }
       }   
      }
+   stage('Sonarqube report') {
+    sh sonar-scanner \
+     -Dsonar.projectKey=com.corelight \
+     -Dsonar.sources=. \
+     -Dsonar.host.url=http://ec2-18-188-125-184.us-east-2.compute.amazonaws.com:9000 \
+     -Dsonar.login=de4fa88afb82c62edf8942c271ae8071d3b8025b
    }
+ }
 }
